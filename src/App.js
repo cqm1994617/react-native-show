@@ -13,8 +13,8 @@ const initRoute = {
 export default class App extends React.Component {
 
   configScene = (route) => {
-    if (route.sceneConfig) {
-      return route.sceneConfig;
+    if (route.sceneConfigs) {
+      return route.sceneConfigs;
     }
     return Navigator.SceneConfigs.PushFromRight;
   };
