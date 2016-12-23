@@ -23,11 +23,14 @@ export default class NavigatorExample extends React.Component {
     navigator: React.PropTypes.object,
   };
 
+  //如图，往路由栈中push一个新的页面NextPage
   nextPage = () => {
     this.context.navigator.push({
       component: NextPage,
     });
   };
+  //往路由栈中push一个新的页面NextPage
+  //同时指定新的页面跳转动画为FloatFromLeft
   nextPage2 = () => {
     this.context.navigator.push({
       component: NextPage,
@@ -46,7 +49,7 @@ export default class NavigatorExample extends React.Component {
       sceneConfigs: Navigator.SceneConfigs.VerticalUpSwipeJump,
     });
   };
-
+  //params中为你想传的参数
   nextPage5 = () => {
     this.context.navigator.push({
       component: NextDataPage,
@@ -70,23 +73,23 @@ export default class NavigatorExample extends React.Component {
         />
         <Button
           text="pushFromRight"
-          to={this.nextPage}
+          press={this.nextPage}
         />
         <Button
           text="FloatFromLeft"
-          to={this.nextPage2}
+          press={this.nextPage2}
         />
         <Button
           text="FadeAndroid"
-          to={this.nextPage3}
+          press={this.nextPage3}
         />
         <Button
           text="VerticalUpSwipeJump"
-          to={this.nextPage4}
+          press={this.nextPage4}
         />
         <Button
           text="往下一个页面传值"
-          to={this.nextPage5}
+          press={this.nextPage5}
         />
       </View>
     );

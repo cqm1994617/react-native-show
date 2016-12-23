@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Text,
   StyleSheet,
+  ScrollView,
 } from 'react-native';
 import NavBar from '../../components/NavBar';
 
@@ -15,6 +16,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  list: {
+    flex: 1,
+    paddingBottom: 15,
   },
   block: {
     margin: 15,
@@ -77,7 +82,7 @@ export default class Animation extends React.Component {
 
   bigger = () => {
     LayoutAnimation.spring();
-    const { width, height } = this.state;
+    const {width, height} = this.state;
     if (width < 251) {
       this.setState({
         width: width + 50,
@@ -88,7 +93,7 @@ export default class Animation extends React.Component {
 
   smaller = () => {
     LayoutAnimation.spring();
-    const { width, height } = this.state;
+    const {width, height} = this.state;
     if (width > 0) {
       this.setState({
         width: width - 50,
@@ -98,7 +103,7 @@ export default class Animation extends React.Component {
   };
 
   render() {
-    const { width, height } = this.state;
+    const {width, height} = this.state;
     const rotateY = this.state.rotateY.interpolate({
       inputRange: [0, 100],
       outputRange: ['0deg', '1600deg']
@@ -113,27 +118,28 @@ export default class Animation extends React.Component {
           title="动画"
           renderBack
         />
-        <View style={[styles.block, { width, height, }]} />
-        <TouchableOpacity
-          style={styles.textContainer}
-          onPress={this.bigger}
-        >
-          <Text>点击放大(LayoutAnimation)</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.textContainer}
-          onPress={this.smaller}
-        >
-          <Text>点击缩小(LayoutAnimation)</Text>
-        </TouchableOpacity>
+        <ScrollView style={styles.list}>
+          <View style={[styles.block, { width, height, }]}/>
+          <TouchableOpacity
+            style={styles.textContainer}
+            onPress={this.bigger}
+          >
+            <Text>点击放大(LayoutAnimation)</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.textContainer}
+            onPress={this.smaller}
+          >
+            <Text>点击缩小(LayoutAnimation)</Text>
+          </TouchableOpacity>
 
-        <Animated.View style={[styles.circle, {
+          <Animated.View style={[styles.circle, {
           transform: [{
             rotateY,
           }]
-        }]} />
+        }]}/>
 
-        <Animated.View style={[styles.block, {
+          <Animated.View style={[styles.block, {
           width: 100,
           height: 100,
           transform: [
@@ -141,13 +147,14 @@ export default class Animation extends React.Component {
             { scale: this.state.scale },
             { rotateZ }
           ]
-        }]} />
-        <TouchableOpacity
-          style={styles.textContainer}
-          onPress={this.sequence}
-        >
-          <Text>顺序动画~~~</Text>
-        </TouchableOpacity>
+        }]}/>
+          <TouchableOpacity
+            style={styles.textContainer}
+            onPress={this.sequence}
+          >
+            <Text>顺序动画~~~</Text>
+          </TouchableOpacity>
+        </ScrollView>
       </View>
     );
   }

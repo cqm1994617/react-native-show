@@ -12,6 +12,7 @@ import NavBar from '../../components/NavBar';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
   },
   block: {
     marginTop: 10,

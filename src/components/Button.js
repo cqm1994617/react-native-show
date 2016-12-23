@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  View,
   TouchableOpacity,
   Text,
   StyleSheet,
@@ -20,9 +21,14 @@ const styles = StyleSheet.create({
 });
 
 const Button = (props, context) => (
-  <TouchableOpacity style={styles.btn} onPress={props.to}>
+  <TouchableOpacity style={[styles.btn, props.style]} onPress={props.press}>
     <Text style={styles.btnText}>{props.text}</Text>
   </TouchableOpacity>
 );
+
+Button.propTypes = {
+  press: React.PropTypes.func,
+  style: View.propTypes.style,
+};
 
 export default Button;

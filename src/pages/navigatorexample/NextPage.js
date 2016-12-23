@@ -5,7 +5,6 @@ import {
   StyleSheet,
 } from 'react-native';
 import NavBar from '../../components/NavBar';
-import Button from '../../components/Button';
 import NextPage2 from './NextPage2';
 
 const styles = StyleSheet.create({

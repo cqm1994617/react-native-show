@@ -5,8 +5,8 @@ import {
   StyleSheet,
 } from 'react-native';
 import NavBar from '../../components/NavBar';
+import DataMobx3 from './DataMobx3';
 import Button from '../../components/Button';
-import DataMobx2 from './DataMobx2';
 import { observer } from 'mobx-react/native';
 
 const styles = StyleSheet.create({
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 });
 
 @observer
-export default class DataMobx extends React.Component {
+export default class DataMobx2 extends React.Component {
 
   static contextTypes = {
     store: React.PropTypes.object,
@@ -33,7 +33,7 @@ export default class DataMobx extends React.Component {
 
   next = () => {
     this.context.navigator.push({
-      component: DataMobx2,
+      component: DataMobx3,
     });
   };
 
@@ -46,15 +46,10 @@ export default class DataMobx extends React.Component {
           renderBack
         />
         <View style={[styles.container, styles.center]}>
-          <Text>这里有{store.basinNum}个盆</Text>
+          <Text>这里有{store.appleNum}个苹果</Text>
           <Button
-            text="加一个盆"
-            press={store.addBasin}
-            style={styles.btn}
-          />
-          <Button
-            text="清空所有东西的数量"
-            press={store.clear}
+            text="加一个苹果"
+            press={store.addApple}
             style={styles.btn}
           />
           <Button

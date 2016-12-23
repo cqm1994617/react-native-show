@@ -53,7 +53,7 @@ export default class ChangeData extends React.Component {
         <View style={styles.container}>
           <Button
             text="改变上个页面的值"
-            to={() => this.back('boom!!!')}
+            press={() => this.back('boom!!!')}
           />
         </View>
       </View>

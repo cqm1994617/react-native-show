@@ -15,15 +15,19 @@ export default class NavigatorProvider extends React.Component {
 
   static propTypes = {
     children: React.PropTypes.element,
+    store: React.PropTypes.object,
   };
 
   static childContextTypes = {
     navigator: React.PropTypes.object,
+    store: React.PropTypes.object,
   };
 
   getChildContext() {
+    const { navigator, store } = this.props;
     return {
-      navigator: this.props.navigator,
+      navigator,
+      store,
     };
   };
 

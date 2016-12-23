@@ -76,7 +76,7 @@ export default class NextDataPage extends React.Component {
         </View>
         <Button
           text="下一个页面"
-          to={this.next}
+          press={this.next}
         />
       </View>
     );

@@ -72,28 +72,27 @@ export default class Home extends React.Component {
     return (
       <View style={styles.container}>
         <NavBar
-          renderBack
           title="首页"
         />
         <Button
           text="基本样式"
-          to={this.toBasic}
+          press={this.toBasic}
         />
         <Button
           text="导航器示例"
-          to={this.toRoute}
+          press={this.toRoute}
         />
         <Button
           text="跨页面信息交互(mobx)"
-          to={this.toDataMobx}
+          press={this.toDataMobx}
         />
         <Button
           text="动画"
-          to={this.toAnimation}
+          press={this.toAnimation}
         />
         <Button
           text="向豆瓣API发起请求"
-          to={this.toNetwork}
+          press={this.toNetwork}
         />
       </View>
     )

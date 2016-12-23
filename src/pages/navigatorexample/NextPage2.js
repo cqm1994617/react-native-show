@@ -5,7 +5,6 @@ import {
   StyleSheet,
 } from 'react-native';
 import NavBar from '../../components/NavBar';
-import Button from '../../components/Button';
 
 const styles = StyleSheet.create({
   container: {
